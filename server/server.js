@@ -13,6 +13,9 @@ app.get('/', (req, res) => {
 
 io.on('connection', (socket) => {
   console.log(`A user has connected - ${new Date().toLocaleString()}`)
+  socket.on('disconnect', () => {
+    console.log(`A user has disconnected - ${new Date().toLocaleString()}`)
+  });
 })
 
 server.listen(3434, () => {
