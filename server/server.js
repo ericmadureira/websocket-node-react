@@ -18,7 +18,11 @@ io.on('connection', (socket) => {
 
   // Message EVENT
   socket.on('send_message', (data) => {
-    console.log(`[${new Date().toLocaleString()}] - Received message: ${data.message}`)
+    const { message } = data
+    console.log(`[${new Date().toLocaleString()}] - Received message: ${message}`)
+
+    // BROADCAST received message to all connected clients besides sender.
+    socket.broadcast.emit('receive_message', { content: message, timestamp: Date.now() })
   })
 
   // Disconnection EVENT
