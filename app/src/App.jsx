@@ -6,7 +6,7 @@ function App() {
   function sendMessage(e) {
     e.preventDefault()
     const input = document.getElementById('input')
-    socket.emit('chat message', input.value)
+    socket.emit('send_message', { message: input.value })
     input.value = ''
   }
 
