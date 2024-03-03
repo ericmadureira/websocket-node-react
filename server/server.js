@@ -17,9 +17,9 @@ app.get('/', (req, res) => {
 })
 
 io.on('connection', (socket) => {
-  console.log(`A user has connected - ${new Date().toLocaleString()}`)
+  console.log(`${new Date().toLocaleString()} - A user has connected: ${socket.id}`)
   socket.on('disconnect', () => {
-    console.log(`A user has disconnected - ${new Date().toLocaleString()}`)
+    console.log(`${new Date().toLocaleString()} - A user has disconnected: ${socket.id}`)
   });
 })
 
