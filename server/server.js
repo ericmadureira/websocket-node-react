@@ -12,10 +12,6 @@ const io = new Server(httpServer, {
   }
 });
 
-app.get('/', (req, res) => {
-  res.send('hello from node server')
-})
-
 // Connection EVENT
 io.on('connection', (socket) => {
   console.log(`[${new Date().toLocaleString()}] - A user has connected: ${socket.id}`)
